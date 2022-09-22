@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 apply plugin: 'kotlin-kapt'
@@ -32,6 +33,10 @@ android {
         jvmTarget = '1.8'
     }
 
+    kapt {
+        generateStubs = true
+    }
+
     buildFeatures {
         viewBinding = true
     }
@@ -48,6 +53,25 @@ dependencies {
     def room_version = "2.3.0"
     implementation("androidx.room:room-runtime:$room_version")
     kapt "androidx.room:room-compiler:$room_version"
+
+    // Dagger
+    implementation 'com.google.dagger:dagger:2.40.5'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    kapt 'com.google.dagger:dagger-compiler:2.40.5'
+
+    // retrofit
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+    implementation("com.squareup.retrofit2:retrofit:2.5.0") {
+        // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
 
     testImplementation 'junit:junit:4.13.2'
