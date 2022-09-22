@@ -1,6 +1,5 @@
 package by.annadanilenko.listfromroom.data.api
 
-import by.annadanilenko.listfromroom.data.INetCleintAPI
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -12,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class MyRetrofit(var baseURL: String) {
 
-    private var restApi: INetCleintAPI? = null
+    private var restApi: INetClientAPI? = null
 
     private fun getHttpClientEnableSSL(): OkHttpClient {
         val versionCodeApp = "1.0"
@@ -36,7 +35,7 @@ class MyRetrofit(var baseURL: String) {
             .build()
     }
 
-    fun createClient(): INetCleintAPI? {
+    fun createClient(): INetClientAPI? {
         val gson = GsonBuilder()
             .setLenient()
             .create()
@@ -47,7 +46,7 @@ class MyRetrofit(var baseURL: String) {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
-        restApi = retrofit.create(INetCleintAPI::class.java)
+        restApi = retrofit.create(INetClientAPI::class.java)
         return restApi
     }
 }

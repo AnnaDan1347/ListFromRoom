@@ -2,8 +2,11 @@ package by.annadanilenko.listfromroom.di
 
 import android.content.Context
 import by.annadanilenko.listfromroom.data.MyConst
+import by.annadanilenko.listfromroom.data.RemoteUsersInfo
 import by.annadanilenko.listfromroom.data.api.MyRetrofit
 import by.annadanilenko.listfromroom.data.api.NetClientAPI
+import by.annadanilenko.listfromroom.data.model.dbroom.AppDatabase
+import by.annadanilenko.listfromroom.data.model.dbroom.getDataBase
 import dagger.Module
 import dagger.Provides
 
@@ -28,9 +31,13 @@ class AppModule(private val context: Context) {
     @Provides
     fun netClientAPI() = NetClientAPI(clientHTTP())
 
-//    @ApplicationScope
-//    @Provides
-//    fun remoteLogin() = RemoteLogin(coreNetClientAPI(), appSettings())
+    @ApplicationScope
+    @Provides
+    fun appDatabase() = getDataBase(context)
+
+    @ApplicationScope
+    @Provides
+    fun getUsersInfo() = RemoteUsersInfo(netClientAPI(), appDatabase())
 //
 //    @ApplicationScope
 //    @Provides

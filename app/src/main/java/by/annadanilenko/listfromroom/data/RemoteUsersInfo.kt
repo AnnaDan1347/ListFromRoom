@@ -64,4 +64,12 @@ class RemoteUsersInfo @Inject constructor(
             }
         }
     }
+
+    suspend fun getUsers(): List<ItemUser?>? {
+        return appDatabase.itemDao?.getAll()
+    }
+
+    suspend fun baseIsEmpty(): Boolean {
+        return appDatabase.itemDao?.getAll()?.isEmpty() ?: true
+    }
 }

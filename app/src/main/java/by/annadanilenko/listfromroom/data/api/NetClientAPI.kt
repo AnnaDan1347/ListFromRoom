@@ -1,7 +1,5 @@
 package by.annadanilenko.listfromroom.data.api
 
-import android.util.Log
-import by.annadanilenko.listfromroom.data.INetClientAPI
 import com.google.gson.JsonElement
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -14,7 +12,7 @@ import javax.inject.Inject
 
 class NetClientAPI @Inject constructor(
     private val clientHTTP: INetClientAPI?
-){
+) {
 
     data class MyResponse(
         var code: Int = 0,
@@ -67,7 +65,6 @@ class NetClientAPI @Inject constructor(
     suspend fun getUsersInfo(): MyResponse {
         val dataHeader: HashMap<String, Any> = HashMap()
         dataHeader["Content-Type"] = "application/json"
-
 
         return runRequest(clientHTTP?.getUsersInfo())
     }

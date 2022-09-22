@@ -1,4 +1,4 @@
-package by.annadanilenko.listfromroom.data
+package by.annadanilenko.listfromroom.data.api
 
 import com.google.gson.JsonElement
 import retrofit2.Call
