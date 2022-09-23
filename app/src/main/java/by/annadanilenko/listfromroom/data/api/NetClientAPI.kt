@@ -37,6 +37,7 @@ class NetClientAPI @Inject constructor(
 
             myResponse.error = response.code() != 200
             myResponse.code = response.code()
+            myResponse.body = response.body()
 
             myResponse.headers = response.headers()
             myResponse.errorBody = response.errorBody()
@@ -66,6 +67,6 @@ class NetClientAPI @Inject constructor(
         val dataHeader: HashMap<String, Any> = HashMap()
         dataHeader["Content-Type"] = "application/json"
 
-        return runRequest(clientHTTP?.getUsersInfo())
+        return runRequest(clientHTTP?.getUsersInfo(dataHeader))
     }
 }

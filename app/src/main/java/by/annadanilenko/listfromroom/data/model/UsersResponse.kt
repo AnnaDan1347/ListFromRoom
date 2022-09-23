@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class UsersResponse(
     var serverCode: Int = 0,
     var errorText: String = "",
-    @SerializedName("users")
-    val users: List<User> = ArrayList<User>()
+    @SerializedName("body")
+    var users: List<User> = ArrayList<User>()
 )
 
 data class User(
