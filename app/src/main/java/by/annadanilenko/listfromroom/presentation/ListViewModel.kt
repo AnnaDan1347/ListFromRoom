@@ -29,7 +29,7 @@ class ListViewModel : ViewModel() {
         ListRoomApplication.appComponent.inject(this)
     }
 
-    suspend fun getUsersInfo(): Boolean {
+    private suspend fun getUsersInfo(): Boolean {
         return remoteUsersInfo.getUsersInfo()
     }
 

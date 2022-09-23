@@ -7,9 +7,9 @@ import by.annadanilenko.listfromroom.R
 
 class MainActivity : AppCompatActivity() {
 
-    init {
-        ListRoomApplication.appComponent.inject(this)
-    }
+//    init {
+//        ListRoomApplication.appComponent.inject(this)
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
