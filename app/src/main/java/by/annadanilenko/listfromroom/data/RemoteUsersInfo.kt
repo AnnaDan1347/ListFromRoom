@@ -36,6 +36,7 @@ class RemoteUsersInfo @Inject constructor(
                     el.toString(),
                     User::class.java
                 ) as User
+                item.originalUrl = res.url
                 recordDatabase.add(item)
             }
             try {

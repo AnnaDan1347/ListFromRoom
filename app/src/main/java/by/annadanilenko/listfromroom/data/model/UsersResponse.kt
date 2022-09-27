@@ -16,5 +16,5 @@ data class User(
     @SerializedName("avatar_url")
     val avatar_url: String = "",
 
-    val originalUrl: String = ""
+    var originalUrl: String = ""
 )

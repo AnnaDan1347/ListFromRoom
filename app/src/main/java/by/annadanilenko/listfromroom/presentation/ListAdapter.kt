@@ -25,6 +25,7 @@ class ListAdapter(
     override fun onBindViewHolder(viewHolder: MessageViewHolder, i: Int) {
 
         viewHolder.userName.text = data[i]?.userName
+        viewHolder.originalUrl.text = data[i]?.originalApi
 
         try {
             Glide.with(viewHolder.avatar)
@@ -41,8 +42,8 @@ class ListAdapter(
     class MessageViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
         internal var userName =
             mView.findViewById(R.id.userName) as TextView
-        internal var textAttribute =
-            mView.findViewById(R.id.userUrl) as TextView
+        internal var originalUrl =
+            mView.findViewById(R.id.originalUrl) as TextView
         internal var avatar = mView.findViewById(R.id.userImage) as ImageView
     }
 }

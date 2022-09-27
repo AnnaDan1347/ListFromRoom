@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <ImageView
@@ -21,21 +22,18 @@
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingTop="6dp"
-        android:paddingEnd="16dp"
         android:paddingBottom="6dp"
         android:text="dsfgss dfgsdga"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/userImage"
         app:layout_constraintTop_toTopOf="@+id/userImage" />
 
     <TextView
-        android:id="@+id/userUrl"
+        android:id="@+id/originalUrl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingTop="6dp"
-        android:paddingEnd="16dp"
         android:paddingBottom="6dp"
         android:text="http dsfgss dfgsdga"
         android:textSize="16sp"
