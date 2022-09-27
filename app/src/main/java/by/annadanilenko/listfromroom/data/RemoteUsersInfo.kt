@@ -10,6 +10,7 @@ import by.annadanilenko.listfromroom.data.model.dbroom.ItemUser
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.google.gson.annotations.SerializedName
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -57,17 +58,17 @@ class RemoteUsersInfo @Inject constructor(
         jsonItems: List<User>
     ) {
         for (el in jsonItems) {
-            val item: ItemUser = (Gson().fromJson<Any>(
-                el.toString(),
-                ItemUser::class.java
-            )) as ItemUser
+//            val item: User = (Gson().fromJson<Any>(
+//                el.toString(),
+//                User::class.java
+//            )) as User
 
             withContext(Dispatchers.IO) {
                 val itemUser = ItemUser(
-                    id = item.id,
-                    userName = item.userName,
-                    imageUrl = item.imageUrl,
-                    originalApi = item.originalApi
+                    id = jsonItems.indexOf(el).toString(),
+                    userName = el.login,
+                    imageUrl = el.avatar_url,
+                    originalApi = el.originalUrl
                 )
 
                 appDatabase.itemDao!!.insert(itemUser)
