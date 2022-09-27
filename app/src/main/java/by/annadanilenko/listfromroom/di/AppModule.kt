@@ -5,7 +5,6 @@ import by.annadanilenko.listfromroom.data.MyConst
 import by.annadanilenko.listfromroom.data.RemoteUsersInfo
 import by.annadanilenko.listfromroom.data.api.MyRetrofit
 import by.annadanilenko.listfromroom.data.api.NetClientAPI
-import by.annadanilenko.listfromroom.data.model.dbroom.AppDatabase
 import by.annadanilenko.listfromroom.data.model.dbroom.getDataBase
 import dagger.Module
 import dagger.Provides
@@ -13,7 +12,6 @@ import dagger.Provides
 
 @Module
 class AppModule(private val context: Context) {
-
 
     //    @ApplicationScope
 //    @Provides
@@ -38,26 +36,5 @@ class AppModule(private val context: Context) {
     @ApplicationScope
     @Provides
     fun getUsersInfo() = RemoteUsersInfo(netClientAPI(), appDatabase())
-//
-//    @ApplicationScope
-//    @Provides
-//    fun appSettings() =
-//        AppSettings(context.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE))
-//
-//    @ApplicationScope
-//    @Provides
-//    fun androidSystemInfo() = AndroidSystemInfo(context)
-//
-//    @ApplicationScope
-//    @Provides
-//    fun remoteClubInfo() = RemoteClubInfo(coreNetClientAPI())
-//
-//    @ApplicationScope
-//    @Provides
-//    fun remoteTrainingsInfo() = RemoteTrainingsInfo(coreNetClientAPI())
-//
-//    @ApplicationScope
-//    @Provides
-//    fun accountDetailResponseProvider() = AccountDetailResponseProvider()
 
 }

@@ -27,6 +27,8 @@ class ListAdapter(
         viewHolder.userName.text = data[i]?.userName
         viewHolder.originalUrl.text = data[i]?.originalApi
 
+        viewHolder.avatar.clipToOutline = true
+
         try {
             Glide.with(viewHolder.avatar)
                 .load(Uri.parse(data[i].imageUrl))
